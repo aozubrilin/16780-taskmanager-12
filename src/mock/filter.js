@@ -11,9 +11,9 @@ const taskToFilterMap = {
   favorites: (tasks) => tasks
     .filter((task) => !task.isArchive)
     .filter((task) => task.isFavorite).length,
-  repeating: (tasks) => tasks
+  repeatingDays: (tasks) => tasks
     .filter((task) => !task.isArchive)
-    .filter((task) => isTaskRepeating(task.repeating)).length,
+    .filter((task) => isTaskRepeating(task.repeatingDays)).length,
   archive: (tasks) => tasks.filter((task) => task.isArchive).length,
 };
 
