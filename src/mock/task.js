@@ -1,30 +1,25 @@
 import {COLORS} from "../const.js";
-import {getRandomInteger} from "../utils.js";
+import {getRandomInteger, getRandomArrayItem, getRandomBoolean, getCurrentDate} from "../utils.js";
 
-const generateDescription = () => {
-  const descriptions = [
-    `Изучить теорию`,
-    `Сделать домашку`,
-    `Пройти интенсив на соточку`
-  ];
+const DESCTIPTIONS = [
+  `Изучить теорию`,
+  `Сделать домашку`,
+  `Пройти интенсив на соточку`
+];
 
-  const randomIndex = getRandomInteger(0, descriptions.length - 1);
+const MAX_DAYS_GAP = 7;
 
-  return descriptions[randomIndex];
-};
+const generateDescription = () => (getRandomArrayItem(DESCTIPTIONS));
 
 const generateDate = () => {
-  const isDate = Boolean(getRandomInteger(0, 1));
+  const isDate = getRandomBoolean();
 
   if (!isDate) {
     return null;
   }
 
-  const maxDaysGap = 7;
-  const daysGap = getRandomInteger(-maxDaysGap, maxDaysGap);
-  const currentDate = new Date();
-
-  currentDate.setHours(23, 59, 59, 999);
+  const daysGap = getRandomInteger(-MAX_DAYS_GAP, MAX_DAYS_GAP);
+  const currentDate = getCurrentDate();
   currentDate.setDate(currentDate.getDate() + daysGap);
 
   return new Date(currentDate);
@@ -35,19 +30,15 @@ const generateRepeatingDays = () => {
   return {
     mo: false,
     tu: false,
-    we: Boolean(getRandomInteger(0, 1)),
+    we: getRandomBoolean(),
     th: false,
-    fr: Boolean(getRandomInteger(0, 1)),
+    fr: getRandomBoolean(),
     sa: false,
     su: false
   };
 };
 
-const getRandomColor = () => {
-  const randomIndex = getRandomInteger(0, COLORS.length - 1);
-
-  return COLORS[randomIndex];
-};
+const getRandomColor = () => (getRandomArrayItem(COLORS));
 
 export const generateTask = () => {
   const dueDate = generateDate();
@@ -68,7 +59,7 @@ export const generateTask = () => {
     dueDate,
     repeatingDays,
     color: getRandomColor(),
-    isFavorite: Boolean(getRandomInteger(0, 1)),
-    isArchive: Boolean(getRandomInteger(0, 1))
+    isFavorite: getRandomBoolean(),
+    isArchive: getRandomBoolean()
   };
 };

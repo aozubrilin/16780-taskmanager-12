@@ -7,7 +7,7 @@ import {createBoardTemplate} from "./view/board.js";
 import {generateTask} from "./mock/task.js";
 import {generateFilter} from "./mock/filter.js";
 
-const TASK_COUNT = 22;
+const TASK_COUNT = 20;
 const TASK_COUNT_PER_STEP = 8;
 
 const tasks = new Array(TASK_COUNT).fill().map(generateTask);
