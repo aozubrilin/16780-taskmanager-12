@@ -23,7 +23,7 @@ export const createElement = (template) => {
   const newElement = document.createElement(`div`);
   newElement.innerHTML = template;
 
-  return newElement.firstChild;
+  return newElement.firstElementChild;
 };
 
 export const getCurrentDate = () => {
@@ -69,8 +69,8 @@ export const isTaskExpiringToday = (dueDate) => {
   return currentDate.getTime() === dueDate.getTime();
 };
 
-export const isTaskRepeating = (repeatingDays) => {
-  return Object.values(repeatingDays).some(Boolean);
+export const isTaskRepeating = (repeating) => {
+  return Object.values(repeating).some(Boolean);
 };
 
 export const humanizeTaskDueDate = (dueDate) => {

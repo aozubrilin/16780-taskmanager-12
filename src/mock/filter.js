@@ -11,7 +11,7 @@ export const generateFilter = (tasks) => {
     filter.overdue = countFilteredTask(filter.overdue, !task.isArchive && isTaskExpired(task.dueDate));
     filter.today = countFilteredTask(filter.today, !task.isArchive && isTaskExpiringToday(task.dueDate));
     filter.favorites = countFilteredTask(filter.favorites, !task.isArchive && task.isFavorite);
-    filter.repeating = countFilteredTask(filter.repeating, !task.isArchive && isTaskRepeating(task.repeatingDays));
+    filter.repeating = countFilteredTask(filter.repeating, !task.isArchive && isTaskRepeating(task.repeating));
     filter.archive = countFilteredTask(filter.archive, task.isArchive);
 
     return filter;

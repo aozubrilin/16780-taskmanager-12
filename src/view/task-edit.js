@@ -74,17 +74,17 @@ const createTaskEditColorsTemplate = (currentColor) => {
 };
 
 const createTaskEditTemplate = (task = {}) => {
-  const {color, description, dueDate, repeatingDays} = task;
+  const {color, description, dueDate, repeating} = task;
 
   const deadlineClassName = isTaskExpired(dueDate)
     ? `card--deadline`
     : ``;
   const dateTemplate = createTaskEditDateTemplate(dueDate);
 
-  const repeatingClassName = isTaskRepeating(repeatingDays)
+  const repeatingClassName = isTaskRepeating(repeating)
     ? `card--repeat`
     : ``;
-  const repeatingTemplate = createTaskEditRepeatingTemplate(repeatingDays);
+  const repeatingTemplate = createTaskEditRepeatingTemplate(repeating);
 
   const colorsTemplate = createTaskEditColorsTemplate(color);
 
@@ -129,7 +129,7 @@ const createTaskEditTemplate = (task = {}) => {
 };
 
 export default class TaskEdit {
-  constructor(task = BLANK_TASK) {
+  constructor(task = Object.assign({}, BLANK_TASK)) {
     this._task = task;
     this._element = null;
   }

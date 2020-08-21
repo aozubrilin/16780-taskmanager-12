@@ -25,7 +25,7 @@ const generateDate = () => {
   return new Date(currentDate);
 };
 
-const generateRepeatingDays = () => {
+const generateRepeating = () => {
 
   return {
     mo: false,
@@ -42,8 +42,8 @@ const getRandomColor = () => (getRandomArrayItem(COLORS));
 
 export const generateTask = () => {
   const dueDate = generateDate();
-  const repeatingDays = dueDate === null
-    ? generateRepeatingDays()
+  const repeating = dueDate === null
+    ? generateRepeating()
     : {
       mo: false,
       tu: false,
@@ -57,7 +57,7 @@ export const generateTask = () => {
   return {
     description: generateDescription(),
     dueDate,
-    repeatingDays,
+    repeating,
     color: getRandomColor(),
     isFavorite: getRandomBoolean(),
     isArchive: getRandomBoolean()
