@@ -1,7 +1,7 @@
 import {isTaskExpired, isTaskRepeating, humanizeTaskDueDate, createElement} from "../utils.js";
 
 const createTaskTemplate = (task) => {
-  const {color, description, dueDate, repeatingDays, isArchive, isFavorite} = task;
+  const {color, description, dueDate, repeating, isArchive, isFavorite} = task;
 
   const date = dueDate !== null
     ? `<div class="card__dates">
@@ -17,7 +17,7 @@ const createTaskTemplate = (task) => {
     ? `card--deadline`
     : ``;
 
-  const repeatClassName = isTaskRepeating(repeatingDays)
+  const repeatClassName = isTaskRepeating(repeating)
     ? `card--repeat`
     : ``;
 
