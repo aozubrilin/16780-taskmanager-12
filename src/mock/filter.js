@@ -1,4 +1,4 @@
-import {isTaskExpired, isTaskRepeating, isTaskExpiringToday} from "../utils.js";
+import {isTaskExpired, isTaskRepeating, isTaskExpiringToday} from "../utils/task.js";
 
 const countFilteredTask = (filter, check) => {
   return check ? (filter || 0) + 1 : filter || 0;
