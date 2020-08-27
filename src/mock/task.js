@@ -1,5 +1,6 @@
 import {COLORS} from "../const.js";
-import {getRandomInteger, getRandomArrayItem, getRandomBoolean, getCurrentDate} from "../utils.js";
+import {getRandomInteger, getRandomArrayItem, getRandomBoolean} from "../utils/common.js";
+import {getCurrentDate} from "../utils/task.js";
 
 const DESCTIPTIONS = [
   `Изучить теорию`,
