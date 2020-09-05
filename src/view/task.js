@@ -1,15 +1,16 @@
 import AbstractView from "./abstract.js";
-import {isTaskExpired, isTaskRepeating, humanizeTaskDueDate} from "../utils/task.js";
+import {isTaskExpired, isTaskRepeating, formatTaskDueDate} from "../utils/task.js";
 
 
 const createTaskTemplate = (task) => {
   const {color, description, dueDate, repeating, isArchive, isFavorite} = task;
+  const date = formatTaskDueDate(dueDate);
 
-  const date = dueDate !== null
+  const dateTemplate = date !== ``
     ? `<div class="card__dates">
     <div class="card__date-deadline">
       <p class="card__input-deadline-wrap">
-        <span class="card__date">${humanizeTaskDueDate(dueDate)}</span>
+        <span class="card__date">${date}</span>
       </p>
     </div>
   </div>`
@@ -58,7 +59,7 @@ const createTaskTemplate = (task) => {
           </div>
           <div class="card__settings">
             <div class="card__details">
-              ${date}
+              ${dateTemplate}
             </div>
           </div>
         </div>
