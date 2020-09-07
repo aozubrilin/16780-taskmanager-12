@@ -2,9 +2,7 @@ import {COLORS} from "../const.js";
 import {getRandomInteger, getRandomArrayItem, getRandomBoolean} from "../utils/common.js";
 import {getCurrentDate} from "../utils/task.js";
 
-
-const generateId = () => Date.now() + parseInt(Math.random() * 10000, 10);
-
+export const generateId = () => Date.now() + parseInt(Math.random() * 10000, 10);
 
 const DESCTIPTIONS = [
   `Изучить теорию`,

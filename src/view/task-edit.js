@@ -1,3 +1,4 @@
+import he from "he";
 import SmartView from "./smart.js";
 import {COLORS} from "../const.js";
 import {isTaskRepeating, formatTaskDueDate} from "../utils/task.js";
@@ -105,7 +106,7 @@ const createTaskEditTemplate = (data) => {
               class="card__text"
               placeholder="Start typing your text here..."
               name="text"
-            >${description}</textarea>
+            >${he.encode(description)}</textarea>
           </label>
         </div>
         <div class="card__settings">
@@ -123,7 +124,7 @@ const createTaskEditTemplate = (data) => {
           </div>
         </div>
         <div class="card__status-btns">
-          <button class="card__save" type="submit" ${isSubmitDisabled ? `disabled` : ``}>save</button>
+          <button class="card__save" type="submit"${isSubmitDisabled ? `disabled` : ``}>save</button>
           <button class="card__delete" type="button">delete</button>
         </div>
       </div>
