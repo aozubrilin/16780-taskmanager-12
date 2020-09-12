@@ -1,8 +1,6 @@
 import AbstractView from "./abstract.js";
 import {MenuItem} from "../const.js";
 
-// Функцию для генерации HTML-разметки можно превратить в метод класса,
-// однако делать мы этого не будем, чтобы не раздувать diff изменений
 const createSiteMenuTemplate = () => {
   return `<section class="control__btn-wrap">
     <input
