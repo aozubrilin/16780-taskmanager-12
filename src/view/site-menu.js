@@ -56,6 +56,10 @@ export default class SiteMenu extends AbstractView {
     this.getElement().addEventListener(`change`, this._menuClickHandler);
   }
 
+  disable(disabled) {
+    this.getElement().querySelector(`[value=${MenuItem.TASKS}]`).disabled = disabled;
+  }
+
   setMenuItem(menuItem) {
     const item = this.getElement().querySelector(`[value=${menuItem}]`);
 
